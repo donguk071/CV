@@ -136,13 +136,26 @@
 \newenvironment{twocolentry}[2][]{
     \onecolentry
     \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4.5 cm}
+    \setcolumnwidth{\fill, 3.5 cm}
     \begin{paracol}{2}
 }{
     \switchcolumn \raggedleft \secondColumn
     \end{paracol}
     \endonecolentry
 } % new environment for two column entries
+
+\newenvironment{twocolentry_project}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 2.0 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+
 
 \newenvironment{threecolentry}[3][]{
     \onecolentry
@@ -211,22 +224,7 @@
     
     \vspace{1 cm}
 
-    \section{Welcome to RenderCV!}
-
-        \begin{onecolentry}
-            \href{https://rendercv.com}{RenderCV} is a LaTeX-based CV/resume version-control and maintenance app. It allows you to create a high-quality CV or resume as a PDF file from a YAML file, with \textbf{Markdown syntax support} and \textbf{complete control over the LaTeX code}.
-        \end{onecolentry}
-
-        \vspace{0.2 cm}
-
-        \begin{onecolentry}
-            The boilerplate content was inspired by \href{https://github.com/dnl-blkv/mcdowell-cv}{Gayle McDowell}.
-        \end{onecolentry}
-
-
     \section{Education}
-
-
         \begin{twocolentry}{
             \small\textit{Ulsan, S.Korea}
             
@@ -243,9 +241,29 @@
             \textbf{Graduate School of Artificial Intelligence, AI core}
             \begin{highlights}
                 \item Total GPA 4.2/4.5
+                \item \hrefWithoutArrow{https://vip.unist.ac.kr/}{Visual Information Processing Lab \faLink}(Prof.Jae-Young Sim)
             \end{highlights}
         \end{twocolentry}
 
+        \begin{twocolentry}{
+            \small\textit{SanDiego, CA, US}
+            
+            \vspace{0.2cm}
+            
+            \textit{Jul 2022 – Aug 2022}
+        }
+            % 기관명
+            \textbf{\color{headingOrange}Qualcomm Institute, UC San Diego.}
+            
+            \vspace{0.2cm}
+            
+            % 학위 및 전공
+            \textbf{Qualcomm Institute AI Development Projects}
+            \begin{highlights}
+                \item International Researcher
+            \end{highlights}
+        \end{twocolentry}
+        
 
         \begin{twocolentry}{
             \small\textit{Seoul, S.Korea}
@@ -263,6 +281,7 @@
             \textbf{B.S in Information Convergence, Major in Data Science}
             \begin{highlights}
                 \item Total GPA 3.98/4.5, Major GPA 4.16/4.5 (Credits taken: 116/133)
+                \item \hrefWithoutArrow{https://korfriend.github.io/}{Deep Imaging and Graphics Lab \faLink}(Prof.Dongjoon Kim)
             \end{highlights}
         \end{twocolentry}
         
@@ -272,16 +291,31 @@
     
     \section{Publications}
     \subsection{International}
+
+
+        \begin{twocolentry}{
+            May 2026
+        }
+            \textbf{\color{headingOrange}[Under Review] ICLR 2026}
+
+            \textbf{Parameterization-Based Dataset Distillation of 3D Point Clouds through Learnable Shape Morphing}
+            (1st author) 
+
+            \mbox{\textit{\underline{Dong-Wook Kim}, Jae-Young Yim  and Jae-Young Sim}}
+            
+            \vspace{0.10 cm}
+            
+        \end{twocolentry}
+    
         \begin{twocolentry}{
             Nov 2025
         }
-            \textbf{\color{headingOrange}NeurIPS}
+            \textbf{\color{headingOrange}NeurIPS 2025}
 
             \textbf{Dataset Distillation of 3D Point Clouds via Distribution Matching}
             (1st author, \hrefWithoutArrow{https://github.com/donguk071/SADM}{\faLink link}) 
 
-            \mbox{\textit{Jae-Young Yim, Dong-Wook Kim}}, et al.
-            
+            \mbox{\textit{Jae-Young Yim, \underline{Dong-Wook Kim} and Jae-Young Sim}}
             \vspace{0.10 cm}
             
         \end{twocolentry}
@@ -290,44 +324,28 @@
         \begin{twocolentry}{
             Sep 2025
         }
-            \textbf{\color{headingOrange}ICIP-W}
+            \textbf{\color{headingOrange}ICIP-W 2025}
 
-            \textbf{CLASS-AWARE CORESET SELECTION FOR 3D POINT CLOUDS CLASSIFICATION}
-            (2nd author, \hrefWithoutArrow{https://github.com/donguk071/SADM}{\faLink link}) 
+            \textbf{Class-Aware Coreset Selection for 3D Point Clouds Classification}
+            (2nd author) 
 
-            \mbox{\textit{Jae-Young Yim, Dong-Wook Kim}}, et al.
+            \mbox{\textit{Jae-Young Yim, \underline{Dong-Wook Kim}  and Jae-Young Sim}}
             
             \vspace{0.10 cm}
             
         \end{twocolentry}
-
-        \begin{twocolentry}{
-            Sep 2025
-        }
-            \textbf{\color{headingOrange}NeurIPS}
-
-            \textbf{Dataset Distillation of 3D Point Clouds via Distribution Matching}
-            (1st author, \hrefWithoutArrow{https://github.com/donguk071/SADM}{\faLink link}) 
-
-            \mbox{\textit{Jae-Young Yim, Dong-Wook Kim}}, et al.
-            
-            \vspace{0.10 cm}
-            
-        \end{twocolentry}
-
-
 
         \subsection{Domestic}
 
         \begin{twocolentry}{
             Jun 2024
         }
-            \textbf{\color{headingOrange}IPIU}
+            \textbf{\color{headingOrange}IPIU 2024}
 
             \textbf{Controllable Classification via Negative-Context-Aware Learning}
             (2nd author, \hrefWithoutArrow{http://www.ipiu.or.kr/images/mtl01r-20-0043/sub/IPIU2025_Program_v3.pdf}{\faLink link}) 
 
-            \mbox{\textit{Yoon-Han Kim, JooHyuk Kim, Dong-Wook Kim}}, et al.
+            \mbox{\textit{Jae-Young Yim, \underline{Dong-Wook Kim} and Jae-Young Sim}}
             
         
             \vspace{0.10 cm}
@@ -338,12 +356,12 @@
         \begin{twocolentry}{
             Jun 2024
         }
-            \textbf{\color{headingOrange}IEIE}
+            \textbf{\color{headingOrange}IEIE 2024}
 
             \textbf{Enhancing Quality of Gaussian Splatting in Few Shot Condition by Multi-Scale Augmentatio}
             (1st author, \hrefWithoutArrow{https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11890955&width=1732}{\faLink link}) 
 
-            \mbox{\textit{Dong-Wook Kim, Jae-Young Yim}}, et al.
+            \mbox{\textit{\underline{Dong-Wook Kim}, Jae-Young Yim and Jae-Young Sim}}
             
         
             \vspace{0.10 cm}
@@ -354,12 +372,12 @@
         \begin{twocolentry}{
             Feb 2023
         }
-            \textbf{\color{headingOrange}HCI Academy of Korea}
+            \textbf{\color{headingOrange}HCI Academy of Korea 2023}
 
             \textbf{Synthesized training data for a ship 3D surround view learning model based on user evaluations}
             (1st author, \hrefWithoutArrow{https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11229776&width=1732}{\faLink link}) 
  
-            \mbox{\textit{Dongwook Kim, Jonghun Kim, Taemin Jeong}}, et al.
+            \mbox{\textit{\underline{Dongwook Kim}, Jonghun Kim, Taemin Jeong and Dongjoon Kim}}
             
         
             \vspace{0.10 cm}
@@ -370,28 +388,6 @@
 
     
     \section{Experience}
-
-        \begin{twocolentry}{
-            \small\textit{Ulsan, S.Korea}
-            
-            \vspace{0.1cm}
-            
-            Jul 2024 – Current
-        }
-            \textbf{\color{headingOrange}UNIST.}
-                
-            \vspace{0.2cm}
-            
-            \textbf{Visual Information Processing lab.}, Undergraduate Research Assistant
-            \begin{highlights}
-                \item Conducted research in computer vision and computer graphics.
-                \item Studied the latest research and reviewed papers on Computer Vision and Deep Learning.
-            \end{highlights}
-        \end{twocolentry}
-        
-        \vspace{0.2 cm}
-        
-
 
         \begin{twocolentry}{
             \small\textit{SanDiego, CA, US}
@@ -413,85 +409,107 @@
             \end{highlights}
         \end{twocolentry}
         
-        \vspace{0.2 cm}
-
-
         \begin{twocolentry}{
-            \small\textit{Seoul, S.Korea}
-            
-            \vspace{0.1cm}
-            
-            Jul 2021 – 2024
+            \small\textit{Seoul, S.Korea} 
+
+            \textit{Jul.2021– Feb.2024}
         }
-            \textbf{\color{headingOrange}Kwangwoon Univ.}
-                
-            \vspace{0.2cm}
-            
-            \textbf{Visual Informatics lab, lab.}, Undergraduate Research Assistant
-            \begin{highlights}
-                \item Conducted research in computer vision and computer graphics.
-                \item Studied the latest research and reviewed papers on Computer Vision and Deep Learning.
-            \end{highlights}
+            \textbf{\color{headingOrange}Kwangwoon Univ.} \textbf{Visual Informatics lab, lab.}, Undergraduate Research Assistant
         \end{twocolentry}
         
         \vspace{0.2 cm}
 
         
-        \section{Awards}
+    \section{Projects \& Awards}
 
-            \begin{twocolentry}{
-                Feb 2024
-            }
-                \textbf{1st prize, SKT FLY AI}
-                \begin{highlights}
-                    \item
-                    \item
-                \end{highlights}
-            \end{twocolentry}
-        
-            \vspace{0.2 cm}
-            
-
-            \begin{twocolentry}{
-                Oct 2022
-            }
-                \textbf{1st prize (Minister's Award), AI contest}
-                \begin{highlights}
-                    \item Competed in an OCR task for signage image recognition at the AI Competition for Software-Centered Universities.
-                    \item Improved performance through data augmentation and ensemble models.
-                \end{highlights}
-            \end{twocolentry}
-        
-            \vspace{0.2 cm}
-        
-            \begin{twocolentry}{
-                Jun 2022
-            }
-                \textbf{3rd prize, Student Creative Design Course}
-                \begin{highlights}
-                    \item Developed "Coverist," an AI-based book cover generation service.
-                    \item Managed the end-to-end project, from AI development to web/app deployment.
-                \end{highlights}
-            \end{twocolentry}
-
-
-    
-    \section{Technologies}
-
-
-
-        
-        \begin{onecolentry}
-            \textbf{Languages:} C++, C, Java, Objective-C, C\#, SQL, JavaScript
-        \end{onecolentry}
+        \begin{twocolentry_project}{
+            Feb 2024
+        }
+            \textbf{2nd prize, 2025  Samsung AI Challenge}
+            \begin{highlights}
+                \item
+                \item
+            \end{highlights}
+        \end{twocolentry_project}
 
         \vspace{0.2 cm}
+        
+        \begin{twocolentry_project}{
+            Feb 2024
+        }
+            \textbf{1st prize, SKT FLY AI}
+            \begin{highlights}
+                \item
+                \item
+            \end{highlights}
+        \end{twocolentry_project}
+    
+        \vspace{0.2 cm}
+        
+
+        \begin{twocolentry_project}{
+            Oct 2022
+        }
+            \textbf{1st prize (Minister's Award), AI contest}
+            \begin{highlights}
+                \item Competed in an OCR task for signage image recognition at the AI Competition for Software-Centered Universities.
+                \item Improved performance through data augmentation and ensemble models.
+            \end{highlights}
+        \end{twocolentry_project}
+    
+        \vspace{0.2 cm}
+    
+        \begin{twocolentry_project}{
+            Jun 2022
+        }
+            \textbf{3rd prize, Student Creative Design Course}
+            \begin{highlights}
+                \item Developed "Coverist," an AI-based book cover generation service.
+                \item Managed the end-to-end project, from AI development to web/app deployment.
+            \end{highlights}
+        \end{twocolentry_project}
+
+
+        \begin{twocolentry_project}{
+            Jun 2022
+        }
+            \textbf{Disortion-free SVM generteration }
+            \begin{highlights}
+                \item Built a real-time digital twin of a marine environment in Unreal Engine 5, generating synthetic data from virtual LiDAR and RGB sensors.
+
+                \item Developed and trained deep learning models for sensor data enhancement, including LiDAR super-resolution and image segmentation.
+                
+                \item Integrated a 3D geometry reconstruction pipeline using calibrated sensor data to successfully complete the development of a distortion-free Surround View Monitor (SVM).
+            \end{highlights}
+        \end{twocolentry_project}
+
+
+    \section{Patent}    
+    
+
+
+
+    \section{Extra Activity}    
+
+
+    \section{Technologies}
 
         \begin{onecolentry}
-            \textbf{Technologies:} .NET, Microsoft SQL Server, XCode, Interface Builder
+            \textbf{Programming Languages:} Python, C++, JavaScript, Unreal Blueprints
+        \end{onecolentry}
+    
+        \vspace{0.2 cm}
+    
+        \begin{onecolentry}
+            \textbf{Deep Learning \& Vision:} TensorFlow, PyTorch, OpenCV
+        \end{onecolentry}
+        
+        \vspace{0.2 cm}
+    
+        \begin{onecolentry}
+            \textbf{Simulation \& Graphics:} Unreal Engine, Three.js, Panda3D
         \end{onecolentry}
 
 
-    
-
+        
 \end{document}
