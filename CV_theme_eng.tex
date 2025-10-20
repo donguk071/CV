@@ -51,10 +51,10 @@
 \fi
 
 \usepackage[default, type1]{sourcesanspro} 
+
 \newcommand{\circularimage}[2][]{%
     \begin{tikzpicture}
-        \clip (0,0) circle (1.5cm);
-        \node at (0,0) {\includegraphics[width=3cm, angle=90]{#2}}; % angle=90 추가
+        \node at (0,0) {\includegraphics[width=2.5cm, angle=0]{#2}};
     \end{tikzpicture}
 }
 
@@ -198,7 +198,7 @@
     \hspace{0.6cm} 
     \begin{minipage}[c]{3.5cm} % 왼쪽: 사진을 담을 상자, [c]는 세로 중앙 정렬 옵션
         \centering % 이미지 중앙 정렬
-        \circularimage{profile.jpg} % "profile.jpg"를 실제 파일명으로 변경
+        \circularimage{profile_dwkim.png} % "profile.jpg"를 실제 파일명으로 변경
     \end{minipage}
     \hspace{0.5cm} % 사진과 글자 사이의 간격
     \begin{minipage}[c]{\linewidth-4cm} % 오른쪽: 글자를 담을 상자, 전체 폭에서 사진 상자 폭만큼 뺌
@@ -222,7 +222,13 @@
     % --- 새로운 헤더 끝 ---
 
     
-    \vspace{1 cm}
+
+    \section{Interest}
+
+    I am conducting research in 3D vision and AI agents, specializing in dataset distillation to enhance model training efficiency and scene reconstruction techniques such as Gaussian Splatting.
+    Recently, I have been working on lightweight multimodal large language models (MLLMs) that incorporate point cloud understanding, as well as developing intelligent agent systems that integrate visual information with language-based reasoning.
+    \vspace{0.2cm}
+
 
     \section{Education}
         \begin{twocolentry}{
@@ -240,7 +246,7 @@
             % 학위 및 전공
             \textbf{Graduate School of Artificial Intelligence, AI core}
             \begin{highlights}
-                \item Total GPA 4.2/4.5
+                \item Total GPA 4.2/4.3
                 \item \hrefWithoutArrow{https://vip.unist.ac.kr/}{Visual Information Processing Lab \faLink}(Prof.Jae-Young Sim)
             \end{highlights}
         \end{twocolentry}
@@ -386,110 +392,163 @@
 
 
 
-    
+        
+
+            
     \section{Experience}
 
-        \begin{twocolentry}{
-            \small\textit{SanDiego, CA, US}
-            
-            \vspace{0.2cm}
-            
-            \textit{Jul 2022 – Aug 2022}
-        }
-            % 기관명
-            \textbf{\color{headingOrange}Qualcomm Institute, UC San Diego.}
-            
-            \vspace{0.2cm}
-            
-            % 학위 및 전공
-            \textbf{Qualcomm Institute AI Development Projects}
-            \begin{highlights}
-                \item Developed a classification model using the KNIME framework
-                \item Prevent abusing through analyzing and classifying user characteristics on Intragram
-            \end{highlights}
-        \end{twocolentry}
+    \begin{twocolentry}{
+        \small\textit{San Diego, CA, USA}
         
-        \begin{twocolentry}{
-            \small\textit{Seoul, S.Korea} 
-
-            \textit{Jul.2021– Feb.2024}
-        }
-            \textbf{\color{headingOrange}Kwangwoon Univ.} \textbf{Visual Informatics lab, lab.}, Undergraduate Research Assistant
-        \end{twocolentry}
+        \vspace{0.2cm}
         
-        \vspace{0.2 cm}
+        \textit{Jul. 2022 – Aug. 2022}
+    }
+        \textbf{\color{headingOrange}Qualcomm Institute, UC San Diego} \\
+        \textbf{AI Development Project Intern}
+        \begin{highlights}
+            \item Developed a user classification model using the KNIME framework.
+            \item Conducted research on preventing abusive behavior by analyzing and classifying user characteristics on Instagram.
+        \end{highlights}
+    \end{twocolentry}
 
-        
-    \section{Projects \& Awards}
+    \begin{twocolentry}{
+        \small\textit{Seoul, South Korea} 
 
-        \begin{twocolentry_project}{
-            Feb 2024
-        }
-            \textbf{2nd prize, 2025  Samsung AI Challenge}
-            \begin{highlights}
-                \item
-                \item
-            \end{highlights}
-        \end{twocolentry_project}
+        \textit{Jul. 2021 – Feb. 2024}
+    }
+        \textbf{\color{headingOrange}Kwangwoon University, Visual Informatics Lab} \\
+        \textbf{Undergraduate Research Assistant}
+        \begin{highlights}
+            \item Conducted research on implicit modeling (NeRF, LIIF) and GAN-based 3D graphics.
+            \item Led multiple projects involving LiDAR super-resolution, depth estimation, and 3D scene reconstruction.
+        \end{highlights}
+    \end{twocolentry}
 
-        \vspace{0.2 cm}
-        
-        \begin{twocolentry_project}{
-            Feb 2024
-        }
-            \textbf{1st prize, SKT FLY AI}
-            \begin{highlights}
-                \item
-                \item
-            \end{highlights}
-        \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+    \section{Projects}
+
+
+    \begin{twocolentry_project}{
+        Nov. 2025
+    }
+        \textbf{Generative AI for Multimodal Transportation Analytics (with MSIT)}
+        \begin{highlights}
+            \item Developing an explainable multimodal chatbot for traffic analysis integrating CCTV video, sensor data, and LLM-RAG pipeline
+            \item Building robust vision models for adverse-weather traffic scenes and constructing synthetic datasets via Unreal Engine simulation
+            \item Designing a multimodal traffic knowledge graph and spatio-temporal GNNs for traffic prediction and anomaly detection
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+
+    \begin{twocolentry_project}{
+        Jun. 2023
+    }
+        \textbf{Distortion-Free SVM Generation Project(with Avicus)}
+        \begin{highlights}
+            \item Built a real-time digital twin of a marine environment using Unreal Engine 5, generating synthetic data from virtual LiDAR and RGB sensors.
+            \item Developed deep learning models for sensor data enhancement, including LiDAR super-resolution and image segmentation.
+            \item Integrated a 3D geometry reconstruction pipeline using calibrated sensor data to achieve a distortion-free Surround View Monitoring (SVM) system.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry_project}{Dec. 2022}
+        \textbf{VR : Anchorage Simulation with Unreal Engine 5}
+        \begin{highlights}
+            \item Built boat navigation/docking simulator using Unreal Engine 5 (C++/Blueprints), Oculus SDK/OpenXR.
+            \item Implemented hand–gesture steering via UE Motion Controller.
+        \end{highlights}
+    \end{twocolentry_project}
     
-        \vspace{0.2 cm}
+    \vspace{0.2 cm}
+    \begin{twocolentry_project}{Jun. 2022}
+        \textbf{AR : Distortion-Free SVM Generation Project (with Avicus)}
+        \begin{highlights}
+            \item Real-time face capture \& avatar rigging with MediaPipe Face Mesh, Three.js/WebGL, blendshape mapping(landmark)
+            \item Optimized animation with inverse kinematics (IK) and temporal smoothing for stable expression control
+        \end{highlights}
+    \end{twocolentry_project}
         
+    \vspace{0.2 cm}
+    \begin{twocolentry_project}{Jul. 2022}
+        \textbf{ML/DL : Dementia Prediction Project}
+        \begin{highlights}
+            \item Predicted dementia risk using tabular data and wearable signal features via ensemble ML models
+            \item Applied DL-based signal classification and feature engineering for multimodal health data
+        \end{highlights}
+    \end{twocolentry_project}
 
-        \begin{twocolentry_project}{
-            Oct 2022
-        }
-            \textbf{1st prize (Minister's Award), AI contest}
-            \begin{highlights}
-                \item Competed in an OCR task for signage image recognition at the AI Competition for Software-Centered Universities.
-                \item Improved performance through data augmentation and ensemble models.
-            \end{highlights}
-        \end{twocolentry_project}
+    \vspace{0.2 cm}
+    \begin{twocolentry_project}{Current}
+        \textbf{Computer Vision : OpenCV Camera Calibration \& Panda3D XR Project}
+        \begin{highlights}
+            \item Implementing camera calibration, pose estimation, and XR visualization using OpenCV \& Panda3D
+            \item Developing real-time calibration pipeline for stereo vision XR systems
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+    \section{Competition \& Awards}
+
+    \begin{twocolentry_project}{
+        Oct. 2025
+    }
+        \textbf{2nd Prize, 2025 Samsung AI Challenge}
+        \begin{highlights}
+            \item Developed an AI co-researcher agent integrating MCP and RAG architectures.
+            \item Implemented context management using ChromaDB for efficient information retrieval and dialogue grounding.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+    \begin{twocolentry_project}{
+        Feb. 2024
+    }
+        \textbf{1st Prize, SKT FLY AI Competition}
+        \begin{highlights}
+            \item Developed a motion-synchronized meta character that reacts dynamically to conversation using rigging, retargeting, and TTS.
+            \item Designed and trained an emotion classification network through conversational text data.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+    \begin{twocolentry_project}{
+        Oct. 2022
+    }
+        \textbf{1st Prize (Minister’s Award), AI Contest for Software-Centered Universities}
+        \begin{highlights}
+            \item Competed in an OCR task for signage image recognition.
+            \item Enhanced model performance through advanced data augmentation and ensemble learning strategies.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+    \begin{twocolentry_project}{
+        Jun. 2022
+    }
+        \textbf{3rd Prize, Student Creative Design Competition}
+        \begin{highlights}
+            \item Developed \textit{Coverist}, an AI-based book cover generation service.
+            \item Led the end-to-end development process, including AI modeling, web backend, and mobile deployment.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+
+
+
+    % \section{Patent}    
     
-        \vspace{0.2 cm}
-    
-        \begin{twocolentry_project}{
-            Jun 2022
-        }
-            \textbf{3rd prize, Student Creative Design Course}
-            \begin{highlights}
-                \item Developed "Coverist," an AI-based book cover generation service.
-                \item Managed the end-to-end project, from AI development to web/app deployment.
-            \end{highlights}
-        \end{twocolentry_project}
-
-
-        \begin{twocolentry_project}{
-            Jun 2022
-        }
-            \textbf{Disortion-free SVM generteration }
-            \begin{highlights}
-                \item Built a real-time digital twin of a marine environment in Unreal Engine 5, generating synthetic data from virtual LiDAR and RGB sensors.
-
-                \item Developed and trained deep learning models for sensor data enhancement, including LiDAR super-resolution and image segmentation.
-                
-                \item Integrated a 3D geometry reconstruction pipeline using calibrated sensor data to successfully complete the development of a distortion-free Surround View Monitor (SVM).
-            \end{highlights}
-        \end{twocolentry_project}
-
-
-    \section{Patent}    
-    
-
-
-
-    \section{Extra Activity}    
+    % \section{Extra Activity}    
 
 
     \section{Technologies}
