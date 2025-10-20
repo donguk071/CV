@@ -4,4 +4,6 @@
 
 현재 가장 최신 버전은 [CV_donguk_251020.pdf](https://github.com/donguk071/CV/tree/main/CVs/CV_donguk_251020.pdf) 입니다. 
 
+PDF를 다운 받으시면 하이퍼링크 클릭이 가능합니다. 
+
 CV 양식이 필요하신 분은 .tex 파일을 참고하세요
