@@ -2,7 +2,7 @@
 
 저에 대해 궁금하신 분은 가장 최신 버전 CV를 확인하시면 됩니다. 
 
-현재 가장 최신 버전은 [CV_donguk_251020.pdf](https://github.com/donguk071/CV/tree/main/CVs/CV_donguk_251020.pdf) 입니다. 
+현재 가장 최신 버전은 [CV_donguk_251020.pdf](https://github.com/donguk071/CV/tree/main/CVs/CV_donguk_251106.pdf) 입니다. 
 
 PDF를 다운 받으시면 하이퍼링크 클릭이 가능합니다. 
 
