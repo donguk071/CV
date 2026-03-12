@@ -6,4 +6,4 @@
 *.fdb_latexmk
 *.synctex.gz
 *.tex
-!CV_theme.tex
+!CV_theme_eng.tex

@@ -1,0 +1,566 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1.2 cm, % seperation between body and page edge from the top
+    bottom=1.2 cm, % seperation between body and page edge from the bottom
+    left=1.4 cm, % seperation between body and page edge from the left
+    right=1.4 cm, % seperation between body and page edge from the right
+    footskip=0.6 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage[explicit]{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+
+\definecolor{nameTagColor}{RGB}{100, 100, 100} 
+\definecolor{primaryColor}{RGB}{155, 155, 155} % define primary color
+\definecolor{headingOrange}{RGB}{244, 121, 32} % 
+
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={DONGWOOK KIM's CV - \today},
+    pdfauthor={DONGWOOK KIM},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=nameTagColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage[default, type1]{sourcesanspro} 
+
+\newcommand{\circularimage}[2][]{%
+    \begin{tikzpicture}
+        \node at (0,0) {\includegraphics[width=2.5cm, angle=0]{#2}};
+    \end{tikzpicture}
+}
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small DONGWOOK KIM - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{
+    % avoid page braking right after the section title
+    \needspace{4\baselineskip}
+    % make the font size of the section title large and color it with the primary color
+    \Large\color{primaryColor}
+}{
+}{
+}{
+    % print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+    % from the end of the title to the end of the body
+    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[] % section title formatting
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 3.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+
+\newenvironment{twocolentry_paper}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 3.1 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+
+
+
+\newenvironment{twocolentry_project}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 2.0 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{1 cm, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{nameTagColor}\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in September 2024}\hspace{\widthof{Last updated in September 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    % --- 새로운 헤더 시작 (minipage 사용) ---
+    \hspace{0.6cm} 
+    \begin{minipage}[c]{3.5cm} % 왼쪽: 사진을 담을 상자, [c]는 세로 중앙 정렬 옵션
+        \centering % 이미지 중앙 정렬
+        \circularimage{profile_dwkim.png} % "profile.jpg"를 실제 파일명으로 변경
+    \end{minipage}
+    \hspace{0.5cm} % 사진과 글자 사이의 간격
+    \begin{minipage}[c]{\linewidth-4cm} % 오른쪽: 글자를 담을 상자, 전체 폭에서 사진 상자 폭만큼 뺌
+        \raggedright % 텍스트 왼쪽 정렬
+        {\fontsize{30pt}{30pt}\color{nameTagColor}\textbf{DONGWOOK KIM}}
+        
+        \vspace{0.4cm}
+        
+        % 연락처 정보 (tabular 환경으로 줄 맞춤)
+        \color{nameTagColor}
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{@{} l @{}} % 왼쪽 정렬 테이블
+            \faMapMarker* \hspace{0.2cm} Seoul, S.Korea \hspace{0.6cm} 
+            \hrefWithoutArrow{mailto:donguk071@unist.ac.kr}{\faEnvelope[regular] \hspace{0.2cm} donguk071@unist.ac.kr} \hspace{0.6cm}
+            \hrefWithoutArrow{tel:+82 10-5481-3492}{\faPhone* \hspace{0.2cm} +82 10-5481-3492} \hspace{0.6cm} \\
+            \hrefWithoutArrow{https://donguk071.github.io/}{\faLink \hspace{0.2cm} Tech blog} \hspace{0.6cm} 
+            \hrefWithoutArrow{https://github.com/donguk071}{\faGithub \hspace{0.2cm} donguk071} \hspace{0.6cm}
+            \hrefWithoutArrow{https://www.linkedin.com/in/dongwook-kim-aab4142b8/}{\faLinkedinIn \hspace{0.2cm} DONGWOOK KIM}
+        \end{tabular}
+    \end{minipage}
+    % --- 새로운 헤더 끝 ---
+
+    
+
+    \section{Interest}    
+    % I'm AI researcher interested in dataset distillation and model training efficiency, focusing on improving data utilization and learning stability in dynamic environments through continual and federated learning.
+    % I'm also engaged in 3D vision and scene reconstruction, where I explore efficient representations and neural rendering techniques for robust multi-view and point-cloud understanding.
+    % Recently, I have been working on lightweight multimodal large language models (MLLMs) that incorporate point cloud understanding, as well as developing intelligent agent systems that integrate visual information with language-based reasoning.
+
+    Research interests include 2D/3D Computer Vision and Synthetic Data Generation (Digital Twin). Recently, I have been focusing on \textbf{Data-Centric AI} and \textbf{Intelligent Agent Systems} to enhance the efficiency and usability of AI models in complex industrial environments.
+    
+    \vspace{0.2cm}
+
+
+    \section{Education}
+        \begin{twocolentry}{
+            \small\textit{Ulsan, S.Korea}
+            
+            \vspace{0.2cm}
+            
+            \textit{Jan 2024 – Current}
+        }
+            % 기관명
+            \textbf{\color{headingOrange}UNIST.}
+            % 학위 및 전공
+            \textbf{Graduate School of Artificial Intelligence, AI core}
+            \begin{highlights}
+                \item Total GPA 4.2/4.3
+                \item \hrefWithoutArrow{https://vip.unist.ac.kr/}{Visual Information Processing Lab \faLink}
+                (Prof.Jae-Young Sim)
+                \item Research Focus: Dataset Distillation, AI-Agent, and 3D Gaussian Splatting.
+                \end{highlights}
+        \end{twocolentry}
+
+
+        \begin{twocolentry}{
+            \small\textit{Seoul, S.Korea}
+            
+            \vspace{0.2cm}
+            
+            \textit{Jan 2018 – 2024}
+        }
+            % 기관명
+            \textbf{\color{headingOrange}Kwangwoon Univ.}
+            % 학위 및 전공
+            \textbf{B.S in Information Convergence, Major in Data Science}
+            \begin{highlights}
+                \item Total GPA 3.98/4.5, Major GPA 4.16/4.5
+                \item \hrefWithoutArrow{https://korfriend.github.io/}{Deep Imaging and Graphics Lab \faLink}(Prof.Dongjoon Kim)
+                \item Research Focus: 3D Scene Reconstruction(NeRF) and LiDAR Signal Processing.
+            \end{highlights}
+        \end{twocolentry}
+        
+    \vspace{0.2 cm}
+            
+    \section{Experience}
+
+    \begin{twocolentry}{
+        \small\textit{San Diego, CA, USA}
+        
+        \vspace{0.2cm}
+        
+        \textit{Jul. 2022 – Aug. 2022}
+    }
+        \textbf{\color{headingOrange}Qualcomm Institute, UC San Diego} \\
+        \textbf{AI Development Project Intern}
+        \begin{highlights}
+            \item Analyzed user patterns to classify and detect abusive behavior.
+            \item Collaborated with international teams, communicating research progress in English. 
+        \end{highlights}
+    \end{twocolentry}
+
+    % \begin{twocolentry}{
+    %     \small\textit{Seoul, South Korea} 
+
+    %     \textit{Jul. 2021 – Feb. 2024}
+    % }
+    %     \textbf{\color{headingOrange}Kwangwoon University, Visual Informatics Lab} \\
+    %     \textbf{Undergraduate Research Assistant}
+    %     \begin{highlights}
+    %         \item Conducted research on implicit modeling (NeRF, LIIF) and GAN-based 3D graphics.
+    %         \item Led multiple projects involving LiDAR super-resolution, depth estimation, and 3D scene reconstruction.
+    %     \end{highlights}
+    % \end{twocolentry} 
+
+    \vspace{0.2 cm}
+    \section{Publications}
+    \subsection{International}
+
+
+        \begin{twocolentry_paper}{
+            Apr 2026 \\
+            1st author, \hrefWithoutArrow{https://openreview.net/forum?id=Qe7dKZOtWM}{\faLink link}
+        }
+            \textbf{\color{headingOrange}ICLR 2026}
+
+            \textbf{Parameterization-Based Dataset Distillation of 3D Point Clouds through Learnable Shape Morphing}
+            % (1st author, \hrefWithoutArrow{https://openreview.net/forum?id=Qe7dKZOtWM}{\faLink link}) 
+
+            \mbox{\textit{\underline{Dongwook Kim*}, Jae-Young Yim*  and Jae-Young Sim}}
+            
+            \vspace{0.10 cm}
+            
+        \end{twocolentry_paper}
+    
+        \begin{twocolentry_paper}{
+            Dec 2025
+            \\1st author, \hrefWithoutArrow{https://github.com/donguk071/SADM}{\faLink link}
+            }
+            \textbf{\color{headingOrange}NeurIPS 2025}
+
+            \textbf{Dataset Distillation of 3D Point Clouds via Distribution Matching}
+
+            \mbox{\textit{ Jae-Young Yim*, \underline{Dongwook Kim*} and Jae-Young Sim}}
+            \vspace{0.10 cm}
+            
+        \end{twocolentry_paper}
+
+
+        \begin{twocolentry_paper}{
+            Sep 2025\\
+            2nd author
+        }
+            \textbf{\color{headingOrange}ICIP-W 2025}
+
+            \textbf{Class-Aware Coreset Selection for 3D Point Clouds Classification}
+
+            \mbox{\textit{Jae-Young Yim, \underline{Dongwook Kim}  and Jae-Young Sim}}
+            
+            \vspace{0.10 cm}
+            
+        \end{twocolentry_paper}
+
+        \subsection{Domestic}
+
+        \begin{twocolentry_paper}{
+            Feb 2025
+            \\2nd author, \hrefWithoutArrow{http://www.ipiu.or.kr/images/mtl01r-20-0043/sub/IPIU2025_Program_v3.pdf}{\faLink link}
+            }
+            \textbf{\color{headingOrange}IPIU 2024}
+
+            \textbf{Controllable Classification via Negative-Context-Aware Learning}
+
+            \mbox{\textit{YoonHan Kim,
+            Joohyeok Kim, \underline{Dongwook Kim} and Jae-Young Sim}}
+            \vspace{0.10 cm}
+            
+        \end{twocolentry_paper}
+
+
+        \begin{twocolentry_paper}{
+            Jun 2024
+            \\1st author, \hrefWithoutArrow{https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11890955&width=1732}{\faLink link} 
+            }
+            \textbf{\color{headingOrange}IEIE 2024}
+
+            \textbf{Enhancing Quality of Gaussian Splatting in Few Shot Condition by Multi-Scale Augmentation}
+    
+            \mbox{\textit{\underline{Dongwook Kim}, Jae-Young Yim and Jae-Young Sim}}
+            
+        
+            \vspace{0.10 cm}
+            
+        \end{twocolentry_paper}
+
+
+        \begin{twocolentry_paper}{
+            Feb 2023 \\
+            1st author, \hrefWithoutArrow{https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11229776&width=1732}{\faLink link}
+            }
+            \textbf{\color{headingOrange}HCI Academy of Korea 2023}
+
+            \textbf{Synthesized Training Data for a Ship 3D Surround View Learning Model Based on User Evaluations}
+            
+            \mbox{\textit{\underline{Dongwook Kim}, Jonghun Kim, Taemin Jeong and Dongjoon Kim}}
+            
+        
+            \vspace{0.10 cm}
+            
+        \end{twocolentry_paper}
+
+    \vspace{0.2 cm}
+    \section{Projects}
+
+    \begin{twocolentry_project}{
+        Nov. 2025
+    }
+        \textbf{Generative AI for Multimodal Transportation Analytics (with MSIT)}
+        \begin{highlights}
+            \item Developing an explainable multimodal Decision Support Agent integrating CCTV/sensor data with an LLM-RAG pipeline.
+            \item Building robust vision models for adverse-weather traffic scenes and constructing synthetic datasets via Unreal Engine simulation.
+            \item Designing a multimodal traffic knowledge graph and spatio-temporal GNNs for traffic prediction and anomaly detection.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+    \begin{twocolentry_project}{
+        Jun. 2023\\
+        \hrefWithoutArrow{https://github.com/donguk071/UE_SensorSimulator}{\faLink link}
+    }
+        \textbf{Distortion-Free Surround View Monitor System (with HD Hyundai)}
+        \begin{highlights}
+            \item Built a high-fidelity Digital Twin using Unreal Engine 5, applying camera calibration to match virtual sensors with real-world optics.
+            \item Developed End-to-End deep learning pipelines for sensor fusion (LiDAR + RGB) and super-resolution.
+            \item Achieved Simulation-to-Real adaptation for autonomous navigation support.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    % \vspace{0.2 cm}
+    % \begin{twocolentry_project}{Mar. 2023}
+    %     \textbf{OpenCV Camera Calibration \& Panda3D XR Project}
+    %     \begin{highlights}
+    %         \item Implementing camera calibration, pose estimation, and XR visualization using OpenCV \& Panda3D
+    %         \item Developing real-time calibration pipeline for stereo vision XR systems
+    %     \end{highlights}
+    % \end{twocolentry_project}
+
+    % \vspace{0.2 cm}
+    % \begin{twocolentry_project}{Dec. 2022}
+    %     \textbf{VR : Anchorage Simulation with Unreal Engine 5}
+    %     \begin{highlights}
+    %         \item Built boat navigation/docking simulator using Unreal Engine 5 (C++/Blueprints), Oculus SDK/OpenXR.
+    %         \item Implemented hand–gesture steering via UE Motion Controller.
+    %     \end{highlights}
+    % \end{twocolentry_project}
+    
+    % \vspace{0.2 cm}
+    % \begin{twocolentry_project}{Jun. 2022}
+    %     \textbf{AR : Real-time face capture}
+    %     \begin{highlights}
+    %         \item Real-time face capture \& avatar rigging with MediaPipe Face Mesh, Three.js/WebGL, blendshape mapping(landmark)
+    %         \item Optimized animation with inverse kinematics (IK) and temporal smoothing for stable expression control
+    %     \end{highlights}
+    % \end{twocolentry_project}
+        
+    \vspace{0.2 cm}
+    \begin{twocolentry_project}{Jul. 2022}
+        \textbf{Time-Series Anomaly Detection \& Signal Processing}
+        \begin{highlights}
+            \item Developed an ensemble ML pipeline to detect anomalies in tabular data and multi-channel sensor signals.
+            \item Applied DL-based signal classification and feature engineering for multimodal time-series data. 
+        \end{highlights}
+    \end{twocolentry_project}
+
+
+    
+    \vspace{0.2 cm}
+    \section{Competition \& Awards}
+
+    \begin{twocolentry_project}{
+        Oct. 2025
+        \hrefWithoutArrow{https://github.com/donguk071/AI-Coscientist}{\faLink link}
+    }
+        \textbf{2nd Prize, 2025 Samsung AI Challenge}
+        \begin{highlights}
+            \item Developed an AI co-scientist agent integrating MCP and RAG architectures.
+            \item Implemented dynamic context management using ChromaDB to ground dialogues in technical documents.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+    \begin{twocolentry_project}{
+        Feb. 2024\\
+        \hrefWithoutArrow{https://github.com/donguk071/greedot}{\faLink link}
+    }
+        \textbf{1st Prize, SKT FLY AI Competition}
+        \begin{highlights}
+            \item Built a multimodal Task-Oriented Agent integrating visual signals and conversational context.
+            \item Designed a Context-aware conditioning pipeline using text embeddings to guide reliable response generation and action selection.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+
+    \begin{twocolentry_project}{
+        Oct. 2022
+    }
+        \textbf{1st Prize (Minister’s Award), AI Contest for Software-Centered Universities}
+        \begin{highlights}
+            \item Competed in an OCR task for signage image recognition.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry_project}{
+        Jun. 2022
+    }
+        \textbf{2nd Prize, Student Creative Design Competition}
+        \begin{highlights}
+            \item Developed a StyleGAN-based generative model for book cover synthesis
+            under limited labeled data conditions.      
+            \item Led the End-to-End development process, including AI modeling, web backend, and mobile deployment.
+        \end{highlights}
+    \end{twocolentry_project}
+
+    \vspace{0.2 cm}
+    \section{Patents}
+    \begin{onecolentry}
+        \textbf{Distribution-Matching-Based Dataset Distillation Method for 3D Point Clouds} \\
+        \emph{KR Patent Application No.} 10-2025-0214325 (2025; international filings planned)
+    \end{onecolentry}
+    
+    \vspace{0.2 cm}
+
+    % \section{Extra Activity}    
+    \section{Technologies}
+
+    \begin{onecolentry}
+        \textbf{Languages:} Python, C++, JavaScript
+    \end{onecolentry}
+    
+    \begin{onecolentry}
+        \textbf{Frameworks \& Libraries:} PyTorch, TensorFlow, OpenCV, Open3D,LangGraph, LangChain, MCP, RAG, 
+    \end{onecolentry}
+    
+    \begin{onecolentry}
+        \textbf{AI \& 3D Vision:} Dataset Distillation, LLMs,multi-agent orchestration, 3D Scene Reconstruction(NeRF/GaussianSplatting), Sensor/Camera Calibration, XR
+    \end{onecolentry}
+    
+    \begin{onecolentry}
+        \textbf{Simulation \& Digital Twin:} Unreal Engine 5, Three.js, Panda3D
+    \end{onecolentry}
+
+    \begin{onecolentry}
+        \textbf{MLOps \& Tools:} Docker, Git/GitHub
+    \end{onecolentry}
+
+\end{document}
